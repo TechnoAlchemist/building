@@ -43,6 +43,8 @@ scenario "user submits valid information" do
   # save_and_open_page
   expect(page).to have_content "Building entry was successfully submitted"
   expect(BuildingUnit.count).to eql(prev_count + 1)
+  # save_and_open_page
+  expect(BuildingUnit.last.building_owner).to_not be_nil
 end
 
 scenario "user submits invalid information" do

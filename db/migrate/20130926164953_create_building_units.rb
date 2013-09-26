@@ -9,7 +9,6 @@ class CreateBuildingUnits < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_column :building_units, :building_owner_id, :integer
   end
 
 end

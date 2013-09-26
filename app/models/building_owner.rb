@@ -1,7 +1,7 @@
 class BuildingOwner < ActiveRecord::Base
-  has_many :building_units
+  has_many :building_units,
   inverse_of: :building_owner,
   dependent: :nullify
 
-  validate_presence :name
+  validates_presence_of :name
 end

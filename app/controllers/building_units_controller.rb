@@ -20,7 +20,7 @@ class BuildingUnitsController < ApplicationController
 
   private
   def building_unit_params
-    params.require(:building_unit).permit(:street_address, :city, :state, :postal_code)
+    params.require(:building_unit).permit(:street_address, :city, :state, :postal_code, :building_owner_id)
   end 
 
 end
