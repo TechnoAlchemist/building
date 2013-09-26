@@ -17,9 +17,9 @@ feature "records each building in portfolio", %Q{
 # * I am redirected so that I can record another building.
 
 scenario "user submits valid information" do
-  prev_count = Building.count
+  prev_count = BuildingUnit.count
   visit new_building_path
-  fill_in "Street address", :with => " 123 Fake St."
+  fill_in "Street address", :with => " 123 Fake St"
   fill_in "City", :with => "Boston" 
   fill_in "State", :with => "MA"
   fill_in "Postal code", :with => 02111
@@ -27,11 +27,11 @@ scenario "user submits valid information" do
 
   click_on 'Submit'
   expect(page).to have_content "Building entry was successfully submitted"
-  expect(Building.count).to eql(prev_count + 1)
+  expect(BuildingUnit.count).to eql(prev_count + 1)
 end
 
 scenario "user submits invalid information" do
-  prev_count = Building.count
+  prev_count = BuildingUnit.count
   visit visit_new_building_path
   fill_in "Street address", :with => " 123 Fake St."
   fill_in "City", :with => "Boston" 
@@ -41,7 +41,7 @@ scenario "user submits invalid information" do
   click_on 'Submit'
   expect(page).to_not have_content "Building entry was successfully submitted"
   expect(page).to have_content "Enter the required fields and resubmit"
-  expect(Building.count).to eql(prev_count)
+  expect(BuildingUnit.count).to eql(prev_count)
 end
   
 end

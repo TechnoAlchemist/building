@@ -10,6 +10,6 @@ describe BuildingUnit do
   it { should have_valid(:state).when("MA")}
   it { should_not have_valid(:state).when(nil, "")}
 
-  it { should have_valid(:postal_code).when( 02140 )}
+  it { should have_valid(:postal_code).when(22140)}
   it { should_not have_valid(:postal_code).when(nil, "asdf", 123)}
 end
