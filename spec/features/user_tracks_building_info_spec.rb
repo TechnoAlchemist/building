@@ -18,24 +18,24 @@ feature "records each building in portfolio", %Q{
 
 scenario "user submits valid information" do
   prev_count = BuildingUnit.count
-  visit new_building_path
+  visit new_building_unit_path
   fill_in "Street address", :with => " 123 Fake St"
   fill_in "City", :with => "Boston" 
   fill_in "State", :with => "MA"
-  fill_in "Postal code", :with => 02111
+  fill_in "Postal code", :with => 33242
   fill_in "Description", :with => "It's a 19th century Victorian"
 
   click_on 'Submit'
+  # save_and_open_page
   expect(page).to have_content "Building entry was successfully submitted"
   expect(BuildingUnit.count).to eql(prev_count + 1)
 end
 
 scenario "user submits invalid information" do
   prev_count = BuildingUnit.count
-  visit visit_new_building_path
+  visit new_building_unit_path
   fill_in "Street address", :with => " 123 Fake St."
   fill_in "City", :with => "Boston" 
-  fill_in "Postal code", :with => 02111
   fill_in "Description", :with => "It's a 19th century Victorian"
 
   click_on 'Submit'
