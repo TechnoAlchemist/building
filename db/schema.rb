@@ -11,19 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130926164953) do
+ActiveRecord::Schema.define(version: 20130926190349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "building_owners", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "building_units", force: true do |t|
-    t.string   "street_address", null: false
-    t.string   "city",           null: false
-    t.string   "state",          null: false
-    t.integer  "postal_code",    null: false
+    t.string   "street_address",    null: false
+    t.string   "city",              null: false
+    t.string   "state",             null: false
+    t.integer  "postal_code",       null: false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "building_owner_id"
   end
 
 end
