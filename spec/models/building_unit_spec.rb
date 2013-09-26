@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe BuildingUnit do
+  it { should belong_to :building_owner}
+  
   it { should have_valid(:street_address).when("33 Leaf Rd")}
   it { should_not have_valid(:street_address).when(nil, "")}
 

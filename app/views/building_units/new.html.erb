@@ -29,6 +29,11 @@
     <%= f.text_field :description %>
   </div>
   <div class="actions">
+    <%= f.label :building_owner_id, "Building owner" %><br>
+    <%= f.collection_select :building_owner_id, BuildingOwner.all, 
+    :id, :name, :prompt => true %>
+  </div>
+  <div class="actions">
     <%= f.submit "Submit" %>
   </div>
   
